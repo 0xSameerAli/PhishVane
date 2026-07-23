@@ -1,0 +1,24 @@
+# URL-shortening services. Shortened links hide the true destination and are a
+# common phishing delivery technique. One domain per line. '#'/blank ignored.
+bit.ly
+tinyurl.com
+goo.gl
+t.co
+ow.ly
+is.gd
+buff.ly
+adf.ly
+bit.do
+cutt.ly
+rebrand.ly
+shorturl.at
+rb.gy
+t.ly
+tiny.cc
+soo.gd
+s.id
+cli.gs
+v.gd
+shorte.st
+bl.ink
+lnkd.in

@@ -1,0 +1,11 @@
+# Local threat-intelligence blocklist of known-malicious hosts/domains.
+# The reputation module checks a URL's host and registrable domain against this
+# list (works fully offline). Analysts can append confirmed phishing domains,
+# or wire in a live feed / Google Safe Browsing key (see reputation.py).
+# One host or domain per line, lowercase. '#' and blank lines are ignored.
+#
+# --- Demo entries (safe, non-resolving examples for testing/screenshots) ---
+paypal-secure-login.tk
+account-verify-appleid.com
+secure-update-microsoft.xyz
+free-giftcard-amazon.top

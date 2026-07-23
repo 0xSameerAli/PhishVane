@@ -1,0 +1,41 @@
+# Top-level domains disproportionately abused for phishing / malware
+# (based on public abuse reporting). One TLD per line, without the leading dot.
+# Lines starting with '#' and blank lines are ignored.
+tk
+ml
+ga
+cf
+gq
+xyz
+top
+club
+click
+link
+work
+country
+kim
+gdn
+loan
+download
+review
+party
+science
+stream
+gq
+racing
+win
+bid
+trade
+date
+faith
+cricket
+accountant
+men
+zip
+mov
+rest
+cam
+sbs
+buzz
+quest
+cfd

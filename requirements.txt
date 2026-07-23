@@ -1,0 +1,7 @@
+# PhishVane runtime dependencies
+requests>=2.31.0        # HTTP client for reputation lookups
+tldextract>=5.1.0       # Accurate registrable-domain / subdomain / suffix parsing
+dnspython>=2.6.0        # DNS resolution checks
+python-whois>=0.9.4     # WHOIS domain-age / registrar intelligence
+rich>=13.7.0            # Colored, formatted CLI output
+Flask>=3.0.0            # Web dashboard

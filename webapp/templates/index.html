@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhishVane &middot; Phishing URL Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-head">
+      <div class="brand">
+        <span class="mark">🎣</span>
+        <h1>Phish<span>Vane</span></h1>
+      </div>
+      <p class="tagline">Defensive phishing-URL threat analysis for CERT / SOC triage</p>
+      <span class="ver">v{{ version }}</span>
+    </header>
+
+    <section class="panel input-panel">
+      <form id="analyze-form" autocomplete="off">
+        <div class="field">
+          <input type="text" id="url" name="url" placeholder="Paste a suspicious URL, e.g. paypal-login.tk/verify" required>
+          <button type="submit" id="submit-btn">Analyze</button>
+        </div>
+        <div class="opts">
+          <label class="switch">
+            <input type="checkbox" id="offline">
+            <span>Offline mode (heuristics only — no network lookups)</span>
+          </label>
+        </div>
+        <div class="examples">
+          <span>Try:</span>
+          <button type="button" class="chip" data-url="https://www.google.com">google.com</button>
+          <button type="button" class="chip" data-url="http://paypal-login.tk/verify-account">paypal-login.tk</button>
+          <button type="button" class="chip" data-url="http://192.168.10.5/secure/login.php">IP login page</button>
+          <button type="button" class="chip" data-url="https://secure-appleid.apple.com.verify-account.ru/signin">apple subdomain trick</button>
+          <button type="button" class="chip" data-url="http://free-giftcard-amazon.top/claim">amazon giftcard</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Analyzing…</span>
+    </div>
+
+    <section id="result" class="panel result hidden"></section>
+
+    <footer class="site-foot">
+      PhishVane performs heuristic analysis to support triage — it is a decision aid, not a definitive verdict.
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

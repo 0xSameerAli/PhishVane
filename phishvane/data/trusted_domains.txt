@@ -1,0 +1,66 @@
+# Known-legitimate registrable domains (one per line, lowercase).
+# If a URL's registrable domain matches an entry here, PhishVane treats it as
+# trusted and caps the final risk score low. Subdomains (e.g. accounts.google.com)
+# are covered automatically because matching is on the registrable domain.
+# Lines starting with '#' and blank lines are ignored.
+paypal.com
+google.com
+googlemail.com
+youtube.com
+microsoft.com
+live.com
+outlook.com
+office.com
+office365.com
+windows.com
+apple.com
+icloud.com
+amazon.com
+aws.amazon.com
+netflix.com
+facebook.com
+instagram.com
+whatsapp.com
+linkedin.com
+twitter.com
+x.com
+tiktok.com
+snapchat.com
+dropbox.com
+adobe.com
+spotify.com
+steampowered.com
+discord.com
+github.com
+gitlab.com
+coinbase.com
+binance.com
+chase.com
+wellsfargo.com
+bankofamerica.com
+citibank.com
+hsbc.com
+barclays.co.uk
+visa.com
+mastercard.com
+americanexpress.com
+dhl.com
+fedex.com
+ups.com
+usps.com
+walmart.com
+ebay.com
+alibaba.com
+aliexpress.com
+booking.com
+airbnb.com
+uber.com
+zoom.us
+docusign.com
+wetransfer.com
+yahoo.com
+proton.me
+telegram.org
+wikipedia.org
+mozilla.org
+cloudflare.com

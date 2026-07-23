@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhishVane &middot; {{ r.verdict.label }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-head">
+      <div class="brand">
+        <span class="mark">🎣</span>
+        <h1>Phish<span>Vane</span></h1>
+      </div>
+      <p class="tagline">Defensive phishing-URL threat analysis for CERT / SOC triage</p>
+      <span class="ver">v{{ version }}</span>
+    </header>
+
+    <section class="panel result">
+      <div class="result-head" style="border-color:{{ r.verdict.hex }}">
+        <div class="result-url">{{ r.input_url }}</div>
+        <div class="result-verdict" style="color:{{ r.verdict.hex }}">
+          {{ r.verdict.emoji }} {{ r.verdict.label }}
+        </div>
+      </div>
+
+      {% if r.error %}
+      <div class="note-line note-error">⚠ {{ r.error }}</div>
+      {% endif %}
+
+      <div class="gauge">
+        <div class="gauge-bar">
+          <div class="gauge-fill" style="width:{{ r.score }}%;background:{{ r.verdict.hex }}"></div>
+        </div>
+        <div class="gauge-score" style="color:{{ r.verdict.hex }}">{{ r.score }}<small>/100</small></div>
+      </div>
+
+      {% if r.trust_capped %}
+      <div class="note-line note-trust">ℹ Score capped: registrable domain is on the trusted allow-list.</div>
+      {% endif %}
+
+      <div class="cols">
+        <div>
+          <h3>URL details</h3>
+          <table class="ctx-table">
+            <tr><th>Input URL</th><td>{{ r.input_url }}</td></tr>
+            <tr><th>Host</th><td>{{ r.context.host }}</td></tr>
+            <tr><th>Registrable domain</th><td>{{ r.context.registrable_domain or "—" }}</td></tr>
+            <tr><th>Subdomain</th><td>{{ r.context.subdomain or "—" }}</td></tr>
+            <tr><th>TLD / suffix</th><td>{{ r.context.suffix or "—" }}</td></tr>
+            <tr><th>Scheme</th><td>{{ r.context.scheme }}</td></tr>
+            <tr><th>Analyzed at</th><td>{{ r.timestamp }}</td></tr>
+            <tr><th>Mode</th><td>{{ "Online" if r.online else "Offline" }}</td></tr>
+          </table>
+        </div>
+        <div>
+          <h3>Risk signals ({{ r.signals | length }})</h3>
+          <ul class="signals">
+            {% for s in r.signals %}
+            <li class="sig-item">
+              <span class="sig-dot" style="background:{{ sev_hex.get(s.severity, '#888') }}"></span>
+              <div class="sig-body">
+                <div class="sig-meta">
+                  <span class="sig-title">{{ s.title }}</span>
+                  <span class="sig-pts" style="color:{{ sev_hex.get(s.severity, '#888') }}">
+                    {{ '+' if s.points else '' }}{{ s.points }}</span>
+                </div>
+                <div class="sig-cat">{{ s.category }} · {{ s.severity }}</div>
+                <div class="sig-detail">{{ s.detail }}</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="no-signals">No risk signals were raised.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <a href="/" style="color:var(--accent);text-decoration:none;font-size:14px">&larr; Analyze another URL</a>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      PhishVane performs heuristic analysis to support triage — it is a decision aid, not a definitive verdict.
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Development / testing dependencies
+-r requirements.txt
+pytest>=8.0.0
+
+# Documentation build (report + slides). Screenshots/PDF also use headless Chrome.
+python-pptx>=1.0.0
+Pillow>=10.0.0
+pypdfium2>=4.0.0   # optional: local PDF-render verification

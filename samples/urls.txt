@@ -1,0 +1,18 @@
+# Sample URLs for demonstrating PhishVane (mix of legitimate and crafted-suspicious).
+# The suspicious entries are fabricated for testing and are intentionally
+# non-resolving / harmless. '#' comments and blank lines are ignored.
+
+# --- Legitimate ---
+https://www.google.com
+https://github.com/login
+https://www.paypal.com/signin
+
+# --- Crafted suspicious / phishing-style (harmless test data) ---
+http://paypal-login.tk/verify-account
+http://192.168.10.5/secure/login.php
+https://secure-appleid.apple.com.verify-account.ru/signin
+http://amaz0n-account-update.xyz/confirm?user=victim
+https://bit.ly/3xRnD0mLink
+http://account-verify-appleid.com/login
+https://paypa1.com/us/webscr?cmd=login
+http://free-giftcard-amazon.top/claim
